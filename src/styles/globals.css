@@ -52,3 +52,14 @@ a {
   box-sizing: border-box;
   transition: all 300ms ease;
 }
+
+.btn {
+  width: max-content;
+  padding: 1rem;
+  border-radius: 4rem;
+  border: none;
+  background-color: var(--themeRed);
+  color: white;
+  font-style: 1.1rem;
+  cursor: pointer;
+}
