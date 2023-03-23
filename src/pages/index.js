@@ -2,6 +2,7 @@ import style from "../styles/Home.module.css";
 import Hero from "@/components/Hero";
 import SharedLayout from "@/components/SharedLayout";
 import Head from "next/head";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         </Head>
         <main className={style.home_container}>
           <Hero />
+          <Services />
         </main>
       </SharedLayout>
     </>
