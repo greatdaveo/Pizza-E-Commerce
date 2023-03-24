@@ -3,8 +3,12 @@ import Hero from "@/components/Hero";
 import SharedLayout from "@/components/SharedLayout";
 import Head from "next/head";
 import Services from "@/components/Services";
+import { client } from "@/library/client";
+import Menu from "@/components/Menu";
 
-export default function Home() {
+export default function Home({ pizzas }) {
+  console.log(pizzas);
+
   return (
     <>
       <SharedLayout>
@@ -17,8 +21,19 @@ export default function Home() {
         <main className={style.home_container}>
           <Hero />
           <Services />
+          <Menu pizzas={pizzas} />
         </main>
       </SharedLayout>
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "pizza"]';
+  const pizzas = await client.fetch(query);
+  return {
+    props: {
+      pizzas,
+    },
+  };
+};
